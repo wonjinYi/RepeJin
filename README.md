@@ -32,6 +32,7 @@ Reps : 8
 
 ### Preset ( to be determined )
 Users can create Preset. It should have 'Id, CreatorName, Text, Reps'
-For this, a program using NGINX, Node.js, mariaDB, will be served on AWS.
+
+Program for this will be served on AWS.
 
 
