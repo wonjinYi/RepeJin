@@ -2,4 +2,11 @@ body {
     margin : 0;
     height : 100vh;
     background: linear-gradient( #080045, #03001a);
+
+    box-sizing : border-box;
 }  
+
+.wonjinlab-link {
+    text-decoration : none;
+    color : white;
+}
