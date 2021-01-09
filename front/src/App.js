@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { InputSection, OutputSection } from "./components";
+import InputSection from "./components/InputSection";
+import OutputSection from "./components/OutputSection";
+
 
 export default function App() {
     return (
@@ -35,7 +37,10 @@ const HeaderWrap = styled.div`
 
 const ContentWrap = styled.div`
     display : inherit;
-
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+    
     border : 1px solid white;
 `;
 
