@@ -40,7 +40,7 @@ const ContentWrap = styled.div`
     flex-direction : column;
     justify-content : center;
     align-items : center;
-    
+
     border : 1px solid white;
 `;
 
@@ -48,5 +48,5 @@ const FooterWrap = styled.div`
 `;
 
 const Title = styled.h1`
-    font
+    font-size : 50px;
 `;
