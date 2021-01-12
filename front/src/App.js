@@ -40,8 +40,6 @@ const ContentWrap = styled.div`
     flex-direction : column;
     justify-content : center;
     align-items : center;
-
-    border : 1px solid white;
 `;
 
 const FooterWrap = styled.div`
