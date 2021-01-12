@@ -9,17 +9,32 @@ const useStyles = makeStyles({
         
     },
     textfield : {
-        borderColor : 'white',
+        //borderColor : 'white',
+        padding : '0.5rem',
+        color : 'white',
         '& label' : {
             color : 'white',
         },
         '& label.Mui-focused': {
             color: 'white',
         },
-        '&.MuiTextField-root .MuiOutlinedInput-notchedOutline': {
-            color : 'white',
-            borderColor : 'white',
-        }
+        "& .MuiInput-underline:before": {
+            borderBottom: "none"
+        },
+        "& .MuiInput-underline:hover::before": {
+            borderBottomColor: "white"
+        },
+        "& .MuiInput-underline:after": {
+            borderBottomColor: "white"
+          }
+    },
+    input : {
+        color : 'white',
+    },
+
+    button : {
+        marginTop : '0.5rem',
+        marginBottom : '0.5rem',
     }
 });
 
@@ -31,9 +46,9 @@ export default function InputSection() {
 
     return (
         <InputSectionWrap>
-            <TextField id="text-input" className={classes.textfield} label="Text" />
-            <TextField id="reps-input" className={classes.textfield} label="Reps" />
-            <Button variant="contained">DO REPEAT</Button>
+            <TextField id="text-input" className={classes.textfield} inputProps={{className: classes.input}} label="Text" />
+            <TextField id="reps-input" className={classes.textfield} inputProps={{className: classes.input}}label="Reps" />
+            <Button variant="contained" className={classes.button}>DO REPEAT</Button>
         </InputSectionWrap>
     );
 }
@@ -41,4 +56,7 @@ export default function InputSection() {
 const InputSectionWrap = styled.div`
     display : flex;
     flex-direction : column;
+    
+    padding : 1rem;
+    border : 1px solid white;
 `;
