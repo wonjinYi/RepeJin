@@ -58,5 +58,6 @@ const InputSectionWrap = styled.div`
     flex-direction : column;
     
     padding : 1rem;
+    margin : 1rem;
     border : 1px solid white;
 `;
