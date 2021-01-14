@@ -43,11 +43,11 @@ const useStyles = makeStyles({
 
 export default function InputSection() {
     const classes = useStyles();
-
+    //USE STATE TEXXT, REPS
     return (
         <InputSectionWrap>
             <TextField id="text-input" className={classes.textfield} inputProps={{className: classes.input}} label="Text" />
-            <TextField id="reps-input" className={classes.textfield} inputProps={{className: classes.input}}label="Reps" />
+            <TextField id="reps-input" className={classes.textfield} inputProps={{className: classes.input}} label="Reps" />
             <Button variant="contained" className={classes.button}>DO REPEAT</Button>
         </InputSectionWrap>
     );
