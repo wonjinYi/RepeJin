@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -43,7 +44,9 @@ const useStyles = makeStyles({
 
 export default function InputSection() {
     const classes = useStyles();
-    //USE STATE TEXXT, REPS
+    const [text, setText] = useState('');
+    const [reps, setReps] = useState(1);
+    
     return (
         <InputSectionWrap>
             <TextField id="text-input" className={classes.textfield} inputProps={{className: classes.input}} label="Text" />
