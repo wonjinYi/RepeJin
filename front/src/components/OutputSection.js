@@ -3,15 +3,11 @@ import styled from "styled-components";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles({
-    button : {
-        marginTop : '0.5rem',
-        marginBottom : '0.5rem',
-    }
-});
+
 
 export default function OutputSection({ text, reps }) {
     const classes = useStyles();
+    const result = makeResult(text, reps);
 
     return (
         <OutputSectionWrap>
@@ -19,12 +15,30 @@ export default function OutputSection({ text, reps }) {
             <Button variant="contained" className={classes.button}>COPY IT</Button>
 
             <ResultWrap>
-                <Result>{text}{reps}</Result>
+                <Result>{result}</Result>
             </ResultWrap>            
             
         </OutputSectionWrap>
     );
 }
+
+const makeResult = (text, reps) => {
+    let str = ''
+
+    for(let i=0; i<reps; i++){
+        str += text;
+    }
+
+    return str;
+} 
+
+
+const useStyles = makeStyles({
+    button : {
+        marginTop : '0.5rem',
+        marginBottom : '0.5rem',
+    }
+});
 
 const OutputSectionWrap = styled.div`
     display : flex;
