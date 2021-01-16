@@ -60,7 +60,6 @@ const useStyles = makeStyles({
         
     },
     textfield : {
-        //borderColor : 'white',
         padding : '0.5rem',
         color : 'white',
         '& label' : {
