@@ -39,19 +39,20 @@ const useStyles = makeStyles({
     }
 });
 
-// const RunButton = withstyles(
-// })(Button);
+const passStates = (text, reps) => {
+    console.log(`text : ${text} / reps : ${repx}`);
+}
 
 export default function InputSection() {
     const classes = useStyles();
     const [text, setText] = useState('');
     const [reps, setReps] = useState(1);
-    
+
     return (
         <InputSectionWrap>
-            <TextField id="text-input" className={classes.textfield} inputProps={{className: classes.input}} label="Text" />
-            <TextField id="reps-input" className={classes.textfield} inputProps={{className: classes.input}} label="Reps" />
-            <Button variant="contained" className={classes.button}>DO REPEAT</Button>
+            <TextField id="text-input" className={classes.textfield} inputProps={{className: classes.input}} label="Text" onChange={ (e) => { setText(e.target.value) } } />
+            <TextField id="reps-input" className={classes.textfield} inputProps={{className: classes.input}} label="Reps" onChange={ (e) => { setReps(e.target.value) } } />
+            <Button variant="contained" className={classes.button} onClick={ () => { passStates(text, reps) } }>DO REPEAT</Button>
         </InputSectionWrap>
     );
 }
