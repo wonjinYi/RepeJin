@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -11,8 +12,9 @@ export default function OutputSection({ text, reps }) {
 
     return (
         <OutputSectionWrap>
-
-            <Button variant="contained" className={classes.button}>COPY IT</Button>
+            <CopyToClipboard text={result}>
+                <Button variant="contained" className={classes.button} onClick={ () => { copyNoti(result.length) } }>COPY IT</Button>
+            </CopyToClipboard>
 
             <ResultWrap>
                 <Result>{result}</Result>
@@ -24,13 +26,23 @@ export default function OutputSection({ text, reps }) {
 
 const makeResult = (text, reps) => {
     let str = ''
-
     for(let i=0; i<reps; i++){
         str += text;
     }
 
     return str;
 } 
+
+const copyNoti = (len) => {
+
+    //validation
+    if(len===0){
+        console.warn('[Validate Issue] The result is Empty String : OutputSection.js');
+        return;
+    }
+
+    console.log('copied');
+}
 
 
 const useStyles = makeStyles({
