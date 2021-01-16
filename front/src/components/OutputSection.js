@@ -10,7 +10,7 @@ const useStyles = makeStyles({
     }
 });
 
-export default function OutputSection() {
+export default function OutputSection({ text, reps }) {
     const classes = useStyles();
 
     return (
@@ -19,7 +19,7 @@ export default function OutputSection() {
             <Button variant="contained" className={classes.button}>COPY IT</Button>
 
             <ResultWrap>
-                <Result>result</Result>
+                <Result>{text}{reps}</Result>
             </ResultWrap>            
             
         </OutputSectionWrap>

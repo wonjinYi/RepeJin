@@ -1,9 +1,13 @@
+import React, { useState } from 'react';
+
 import styled from "styled-components";
 import InputSection from "./components/InputSection";
 import OutputSection from "./components/OutputSection";
 
-
 export default function App() {
+    const [text, setText] = useState('');
+    const [reps, setReps] = useState(0);
+
     return (
         <AppWrap className="App">
             <HeaderWrap>
@@ -11,8 +15,8 @@ export default function App() {
             </HeaderWrap>
 
             <ContentWrap>
-                <InputSection />
-                <OutputSection />
+                <InputSection passText={setText} passReps={setReps} />
+                <OutputSection text={text} reps={reps} />
             </ContentWrap>
 
             <FooterWrap>
