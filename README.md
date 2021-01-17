@@ -19,7 +19,7 @@ Web
 
 
 ### Use case
-* Write inputs
+* Inputs
 ```
 Text : 'wonjin! ' 
 Reps : 8
