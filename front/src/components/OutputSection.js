@@ -1,20 +1,36 @@
+import React, { useState } from 'react';
+
 import styled from "styled-components";
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 
 
 export default function OutputSection({ text, reps }) {
-    const classes = useStyles();
+    const [open, setOpen] = useState(false); 
+    const [severity, setSeverity] = useState(''); // 'info' , 'warning'
+
     const result = makeResult(text, reps);
+    const classes = useStyles();
 
     return (
         <OutputSectionWrap>
             <CopyToClipboard text={result}>
-                <Button variant="contained" className={classes.button} onClick={ () => { copyNoti(result.length) } }>COPY IT</Button>
+                <Button variant="contained" className={classes.button} onClick={ () => {openCopyNoti(result.length, setOpen, setSeverity)} }>COPY IT</Button>
             </CopyToClipboard>
+
+            <Snackbar open={open} autoHideDuration={3000} anchorOrigin={{vertical:'bottom', horizontal:'left'}} onClose={ () => {closeCopyNoti(setOpen)} }>
+                <Alert severity={severity} onClose={ () => {closeCopyNoti(setOpen)} }>
+                {
+                    severity === 'info'
+                    ? 'Copied!' 
+                    : 'There is no content'
+                }
+                </Alert>
+            </Snackbar>
 
             <ResultWrap>
                 <Result>{result}</Result>
@@ -33,15 +49,27 @@ const makeResult = (text, reps) => {
     return str;
 } 
 
-const copyNoti = (len) => {
+const openCopyNoti = (len, setOpen, setSeverity) => {
 
     //validation
-    if(len===0){
+    if(len>0){
+        console.log('copied');
+        setSeverity('info')
+    }
+    else {
         console.warn('[Validate Issue] The result is Empty String : OutputSection.js');
-        return;
+        setSeverity('warning')
     }
 
-    console.log('copied');
+    setOpen(true);
+}
+
+const closeCopyNoti = (setOpen) => {
+    setOpen(false);
+}
+
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
 
