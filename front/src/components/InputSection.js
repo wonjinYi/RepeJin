@@ -4,8 +4,10 @@ import styled from "styled-components";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 
-const passStates = (text, reps, passText, passReps) => {
+const passStates = (text, reps, passText, passReps, setOpen) => {
     reps = parseInt(reps)
     console.log(`text : ${text} ${typeof reps}/ reps : ${reps} ${typeof reps}`);
     
@@ -13,11 +15,13 @@ const passStates = (text, reps, passText, passReps) => {
         // 01. Empty input
     if( text==='' || reps==='' ){
         console.warn('[Validate Issue] Empty input : InputSection.js');
+        setOpen(true);
         return;
     }
         // 02. Reps is NaN
     if( Number.isNaN(reps) ){
         console.warn('[Validate Issue] reps is NaN : InputSection.js');
+        setOpen(true);
         return;
     }
 
@@ -30,6 +34,7 @@ export default function InputSection({ passText, passReps }) {
     const classes = useStyles();
     const [text, setText] = useState('');
     const [reps, setReps] = useState('');
+    const [open, setOpen] = useState(false);
 
     return (
         <InputSectionWrap>
@@ -38,10 +43,17 @@ export default function InputSection({ passText, passReps }) {
             <Button 
                 variant="contained" 
                 className={classes.button} 
-                onClick={ () => { passStates(text, reps, passText, passReps) } }
+                onClick={ () => { passStates(text, reps, passText, passReps, setOpen) } }
             >
                 DO REPEAT
             </Button>
+
+            <Snackbar open={open} autoHideDuration={3000} anchorOrigin={{vertical:'bottom', horizontal:'left'}} onClose={ () => {setOpen(false)} }>
+                <MuiAlert elevation={6} variant="filled" severity={'error'} onClose={ () => {setOpen(false)} }>
+                    Please reconfirm your Input
+                </MuiAlert>
+            </Snackbar>
+
         </InputSectionWrap>
     );
 }
