@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 
 import styled from "styled-components";
 
-export default function App() {
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
+
+export default function UserSetting() {
 
     return (
-        <UserSettingWrap className="App">
+        <UserSettingWrap className="UserSetting">
 
         </UserSettingWrap>
     );
