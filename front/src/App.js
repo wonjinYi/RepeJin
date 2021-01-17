@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
 import styled from "styled-components";
+import SnowStorm from 'react-snowstorm';
+
 import InputSection from "./components/InputSection";
 import OutputSection from "./components/OutputSection";
 
@@ -22,6 +24,8 @@ export default function App() {
             <FooterWrap>
                 Wonjin Yi
             </FooterWrap>
+
+            <SnowStorm excludeMobile={false} />
         </AppWrap>
     );
 }
