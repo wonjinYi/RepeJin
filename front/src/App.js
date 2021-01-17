@@ -10,6 +10,7 @@ import OutputSection from "./components/OutputSection";
 export default function App() {
     const [text, setText] = useState('');
     const [reps, setReps] = useState(0);
+    const [settings, setSettings] = useState({});
 
     return (
         <AppWrap className="App">
@@ -17,18 +18,23 @@ export default function App() {
                 <Title>RepeJin</Title>
             </HeaderWrap>
 
-            <UserSetting />
-            
+            <UserSetting passUserSettings={setSettings} />
+
             <ContentWrap>
                 <InputSection passText={setText} passReps={setReps} />
-                <OutputSection text={text} reps={reps} />
+                <OutputSection text={text} reps={reps} lengthLimit={settings.lengthLimit} />
             </ContentWrap>
 
             <FooterWrap>
                 Wonjin Yi
             </FooterWrap>
-
-            <SnowStorm excludeMobile={false} />
+            
+            {
+                settings.snowstorm
+                ? ''
+                : <SnowStorm excludeMobile={false} />
+            }
+            
         </AppWrap>
     );
 }
