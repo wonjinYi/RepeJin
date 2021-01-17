@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/RepeJin/static/css/main.66580764.chunk.css",
-    "main.js": "/RepeJin/static/js/main.0f6d0d1a.chunk.js",
-    "main.js.map": "/RepeJin/static/js/main.0f6d0d1a.chunk.js.map",
+    "main.js": "/RepeJin/static/js/main.a3ab12bb.chunk.js",
+    "main.js.map": "/RepeJin/static/js/main.a3ab12bb.chunk.js.map",
     "runtime-main.js": "/RepeJin/static/js/runtime-main.3c901214.js",
     "runtime-main.js.map": "/RepeJin/static/js/runtime-main.3c901214.js.map",
-    "static/js/2.546e1e02.chunk.js": "/RepeJin/static/js/2.546e1e02.chunk.js",
-    "static/js/2.546e1e02.chunk.js.map": "/RepeJin/static/js/2.546e1e02.chunk.js.map",
+    "static/js/2.97d162d5.chunk.js": "/RepeJin/static/js/2.97d162d5.chunk.js",
+    "static/js/2.97d162d5.chunk.js.map": "/RepeJin/static/js/2.97d162d5.chunk.js.map",
     "index.html": "/RepeJin/index.html",
     "static/css/main.66580764.chunk.css.map": "/RepeJin/static/css/main.66580764.chunk.css.map",
-    "static/js/2.546e1e02.chunk.js.LICENSE.txt": "/RepeJin/static/js/2.546e1e02.chunk.js.LICENSE.txt"
+    "static/js/2.97d162d5.chunk.js.LICENSE.txt": "/RepeJin/static/js/2.97d162d5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3c901214.js",
-    "static/js/2.546e1e02.chunk.js",
+    "static/js/2.97d162d5.chunk.js",
     "static/css/main.66580764.chunk.css",
-    "static/js/main.0f6d0d1a.chunk.js"
+    "static/js/main.a3ab12bb.chunk.js"
   ]
 }
