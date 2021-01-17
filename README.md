@@ -28,6 +28,10 @@ Reps : 8
 ```
 'wonjin! wonjin! wonjin! wonjin! wonjin! wonjin! wonjin! wonjin! '
 ```
+* Reaction
+```
+Your friend 'wonjin' : What the f***?
+```
 
 
 ### Preset ( to be determined )
