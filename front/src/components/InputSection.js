@@ -50,7 +50,7 @@ export default function InputSection({ passText, passReps }) {
 
             <Snackbar open={open} autoHideDuration={3000} anchorOrigin={{vertical:'bottom', horizontal:'left'}} onClose={ () => {setOpen(false)} }>
                 <MuiAlert elevation={6} variant="filled" severity={'error'} onClose={ () => {setOpen(false)} }>
-                    Please reconfirm your Input
+                    Please check your Input
                 </MuiAlert>
             </Snackbar>
 
@@ -67,6 +67,10 @@ const InputSectionWrap = styled.div`
     
     background-color : rgba(255,255,255,0.1);
     border-radius : 5px;
+
+    @media(max-width : 768px){
+        width : 95%;
+    }
 `;
 
 const useStyles = makeStyles({

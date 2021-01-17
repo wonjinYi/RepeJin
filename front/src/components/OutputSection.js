@@ -89,6 +89,10 @@ const OutputSectionWrap = styled.div`
 
     background-color : rgba(255,255,255,0.1);
     border-radius : 5px;
+
+    @media(max-width : 768px){
+        width : 95%;
+    }
 `;
 
 const ResultWrap = styled.div`
