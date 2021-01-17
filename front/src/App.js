@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 import styled from "styled-components";
-import SnowStorm from 'react-snowstorm';
+import SnowStorm from "react-snowstorm";
 
+import UserSetting from "./components/UserSetting";
 import InputSection from "./components/InputSection";
 import OutputSection from "./components/OutputSection";
 
@@ -16,6 +17,8 @@ export default function App() {
                 <Title>RepeJin</Title>
             </HeaderWrap>
 
+            <UserSetting />
+            
             <ContentWrap>
                 <InputSection passText={setText} passReps={setReps} />
                 <OutputSection text={text} reps={reps} />
