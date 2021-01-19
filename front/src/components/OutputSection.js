@@ -9,11 +9,12 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 
 
-export default function OutputSection({ text, reps }) {
+export default function OutputSection({ text, reps, lengthLimit }) {
     const [open, setOpen] = useState(false); 
     const [severity, setSeverity] = useState(''); // 'info' , 'warning'
+    const NumLengthLimit = 2000;
 
-    const result = makeResult(text, reps);
+    const result = makeResult(text, reps, lengthLimit, NumLengthLimit);
     const classes = useStyles();
 
     return (
@@ -40,10 +41,16 @@ export default function OutputSection({ text, reps }) {
     );
 }
 
-const makeResult = (text, reps) => {
+const makeResult = (text, reps, lengthLimit, NumLengthLimit) => {
     let str = ''
+    
+    console.log(lengthLimit);
     for(let i=0; i<reps; i++){
         str += text;
+    }
+
+    if(lengthLimit && (str.length > NumLengthLimit)){
+        str = str.slice(0,2000);
     }
 
     return str;
