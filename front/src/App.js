@@ -49,6 +49,7 @@ const AppWrap = styled.div`
     align-items : center;
 
     color : white;
+    
 `;
 
 const HeaderWrap = styled.div`
@@ -60,6 +61,11 @@ const ContentWrap = styled.div`
     flex-direction : column;
     justify-content : center;
     align-items : center;
+    
+    @media(max-width : 768px){
+        max-width : 90%;
+        width : 90%;
+    }
 `;
 
 const FooterWrap = styled.div`

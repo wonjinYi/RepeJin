@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 
 import styled from "styled-components";
 
+//import { makeStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
 export default function UserSetting({passUserSettings}) {
+    //const classes = useStyles();
+
     const [settings, setSettings] = useState({
         forDiscord: true,
         snowstorm : true,
@@ -23,10 +26,10 @@ export default function UserSetting({passUserSettings}) {
 
     return (
         <UserSettingWrap className="UserSetting">
-            <FormGroup row>
+            <FormGroup>
                 <FormControlLabel
                     control={ <Switch checked={settings.forDiscord} onChange={handleChange} name="forDiscord" color="primary" /> }
-                    label="For Discord" labelPlacement="start"
+                    label="For Discord" labelPlacement="start" 
                 />
                 <FormControlLabel
                     control={ <Switch checked={settings.snowstorm} onChange={handleChange} name="snowstorm" color="primary" /> }
@@ -43,10 +46,9 @@ const UserSettingWrap = styled.div`
     justify-content : center;
     align-items : center;
 
-    padding : 1rem;
-    margin : 1rem;
+
     
-    background-color : rgba(255,255,255,0.1);
+   
     border-radius : 5px;
 
     color : white;
@@ -56,3 +58,4 @@ const UserSettingWrap = styled.div`
         max-width : 90%;
     }
 `;
+//  background-color : rgba(255,255,255,0.1);
