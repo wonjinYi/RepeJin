@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import styled from "styled-components";
 
@@ -8,22 +8,25 @@ import Switch from '@material-ui/core/Switch';
 
 export default function UserSetting({passUserSettings}) {
     const [settings, setSettings] = useState({
-        lengthLimit: true,
+        forDiscord: true,
         snowstorm : true,
+    });
+
+    useEffect( () => {
+        console.log(settings);
+        passUserSettings(settings);
     });
 
     const handleChange = (event) => {
         setSettings({ ...settings, [event.target.name]: event.target.checked });
-        
-        passUserSettings(settings);
     }
 
     return (
         <UserSettingWrap className="UserSetting">
-            <FormGroup column>
+            <FormGroup row>
                 <FormControlLabel
-                    control={ <Switch checked={settings.lengthLimit} onChange={handleChange} name="lengthLimit" color="primary" /> }
-                    label="Output length up to 2000" labelPlacement="start"
+                    control={ <Switch checked={settings.forDiscord} onChange={handleChange} name="forDiscord" color="primary" /> }
+                    label="For Discord" labelPlacement="start"
                 />
                 <FormControlLabel
                     control={ <Switch checked={settings.snowstorm} onChange={handleChange} name="snowstorm" color="primary" /> }
@@ -49,6 +52,7 @@ const UserSettingWrap = styled.div`
     color : white;
 
     @media(max-width : 768px){
-        width : 80%;
+        width : 90%;
+        max-width : 90%;
     }
 `;

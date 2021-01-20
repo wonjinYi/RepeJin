@@ -10,7 +10,10 @@ import OutputSection from "./components/OutputSection";
 export default function App() {
     const [text, setText] = useState('');
     const [reps, setReps] = useState(0);
-    const [settings, setSettings] = useState({});
+    const [settings, setSettings] = useState({
+        forDiscord: true,
+        snowstorm : true,
+    });
 
     return (
         <AppWrap className="App">
@@ -22,7 +25,7 @@ export default function App() {
 
             <ContentWrap>
                 <InputSection passText={setText} passReps={setReps} />
-                <OutputSection text={text} reps={reps} lengthLimit={settings.lengthLimit} />
+                <OutputSection text={text} reps={reps} forDiscord={settings.forDiscord} />
             </ContentWrap>
 
             <FooterWrap>
@@ -31,8 +34,8 @@ export default function App() {
             
             {
                 settings.snowstorm
-                ? ''
-                : <SnowStorm excludeMobile={false} />
+                ? <SnowStorm excludeMobile={false} />
+                : ''
             }
             
         </AppWrap>

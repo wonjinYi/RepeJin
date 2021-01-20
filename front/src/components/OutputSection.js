@@ -9,12 +9,12 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 
 
-export default function OutputSection({ text, reps, lengthLimit }) {
+export default function OutputSection({ text, reps, forDiscord }) {
     const [open, setOpen] = useState(false); 
     const [severity, setSeverity] = useState(''); // 'info' , 'warning'
     const NumLengthLimit = 2000;
 
-    const result = makeResult(text, reps, lengthLimit, NumLengthLimit);
+    const result = makeResult(text, reps, forDiscord, NumLengthLimit);
     const classes = useStyles();
 
     return (
@@ -41,18 +41,19 @@ export default function OutputSection({ text, reps, lengthLimit }) {
     );
 }
 
-const makeResult = (text, reps, lengthLimit, NumLengthLimit) => {
+const makeResult = (text, reps, forDiscord, NumLengthLimit) => {
     let str = ''
-    
-    console.log(lengthLimit);
+
     for(let i=0; i<reps; i++){
         str += text;
+        
+        if(forDiscord && (str.length > NumLengthLimit)){
+            str = str.slice(0,2000);
+            break;
+        }    
     }
 
-    if(lengthLimit && (str.length > NumLengthLimit)){
-        str = str.slice(0,2000);
-    }
-
+    
     return str;
 } 
 
