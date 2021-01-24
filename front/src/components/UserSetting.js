@@ -6,6 +6,7 @@ import styled from "styled-components";
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import Tooltip from '@material-ui/core/Tooltip';
 
 export default function UserSetting({passUserSettings}) {
     //const classes = useStyles();
@@ -13,6 +14,7 @@ export default function UserSetting({passUserSettings}) {
     const [settings, setSettings] = useState({
         forDiscord: true,
         snowstorm : true,
+        autoCopy : true,
     });
 
     useEffect( () => {
@@ -27,13 +29,21 @@ export default function UserSetting({passUserSettings}) {
     return (
         <UserSettingWrap className="UserSetting">
             <FormGroup>
-                <FormControlLabel
-                    control={ <Switch checked={settings.forDiscord} onChange={handleChange} name="forDiscord" color="primary" /> }
-                    label="For Discord" labelPlacement="start" 
-                />
+                <Tooltip title="">
+                    <FormControlLabel
+                        control={ <Switch checked={settings.forDiscord} onChange={handleChange} name="forDiscord" color="primary" /> }
+                        label="For Discord" labelPlacement="start" 
+                    />
+                </Tooltip>
+
                 <FormControlLabel
                     control={ <Switch checked={settings.snowstorm} onChange={handleChange} name="snowstorm" color="primary" /> }
                     label="Snow Storm" labelPlacement="start"
+                />
+
+                <FormControlLabel
+                    control={ <Switch checked={settings.autoCopy} onChange={handleChange} name="autoCopy" color="primary" /> }
+                    label="Auto Copy" labelPlacement="start"
                 />
             </FormGroup>
         </UserSettingWrap>
