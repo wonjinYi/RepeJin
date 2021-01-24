@@ -13,6 +13,7 @@ export default function App() {
     const [settings, setSettings] = useState({
         forDiscord: true,
         snowstorm : true,
+        autoCopy : true,
     });
 
     return (
