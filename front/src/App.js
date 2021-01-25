@@ -26,7 +26,7 @@ export default function App() {
 
             <ContentWrap>
                 <InputSection passText={setText} passReps={setReps} />
-                <OutputSection text={text} reps={reps} forDiscord={settings.forDiscord} />
+                <OutputSection text={text} reps={reps} forDiscord={settings.forDiscord} autoCopy={settings.autoCopy} />
             </ContentWrap>
 
             <FooterWrap>
