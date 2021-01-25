@@ -21,11 +21,8 @@ export default function OutputSection({ text, reps, forDiscord, autoCopy }) {
 
     useEffect( () => {
         if (autoCopy) {
-            // clipboard.js로 오토 카피.
             openCopyNoti(result.length, setOpen, setSeverity)
-           // autoCopy = false;
         }
-        console.log('output');
     }, [autoCopy,result.length]);
     return (
         <OutputSectionWrap>
