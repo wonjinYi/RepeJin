@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+// https://clipboardjs.com/
+
+import React, { useState, useEffect } from 'react';
 
 import styled from "styled-components";
 import { CopyToClipboard } from 'react-copy-to-clipboard'
@@ -9,7 +11,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 
 
-export default function OutputSection({ text, reps, forDiscord }) {
+export default function OutputSection({ text, reps, forDiscord, autoCopy }) {
     const [open, setOpen] = useState(false); 
     const [severity, setSeverity] = useState(''); // 'info' , 'warning'
     const NumLengthLimit = 2000;
@@ -17,6 +19,14 @@ export default function OutputSection({ text, reps, forDiscord }) {
     const result = makeResult(text, reps, forDiscord, NumLengthLimit);
     const classes = useStyles();
 
+    useEffect( () => {
+        if (autoCopy) {
+            // clipboard.js로 오토 카피.
+            openCopyNoti(result.length, setOpen, setSeverity)
+           // autoCopy = false;
+        }
+        console.log('output');
+    }, [autoCopy,result.length]);
     return (
         <OutputSectionWrap>
             <CopyToClipboard text={result}>
