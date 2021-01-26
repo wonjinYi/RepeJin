@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 
 import styled from "styled-components";
 
-//import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import Tooltip from '@material-ui/core/Tooltip';
 
 export default function UserSetting({passUserSettings}) {
-    //const classes = useStyles();
 
     const [settings, setSettings] = useState({
         forDiscord: true,
@@ -29,7 +28,7 @@ export default function UserSetting({passUserSettings}) {
     return (
         <UserSettingWrap className="UserSetting">
             <FormGroup>
-                <Tooltip title="">
+                <Tooltip title="" placement="left">
                     <FormControlLabel
                         control={ <Switch checked={settings.forDiscord} onChange={handleChange} name="forDiscord" color="primary" /> }
                         label="For Discord" labelPlacement="start" 
@@ -41,10 +40,12 @@ export default function UserSetting({passUserSettings}) {
                     label="Snow Storm" labelPlacement="start"
                 />
 
-                <FormControlLabel
-                    control={ <Switch checked={settings.autoCopy} onChange={handleChange} name="autoCopy" color="primary" /> }
-                    label="Auto Copy" labelPlacement="start"
-                />
+                <Tooltip title="Copy automatically without click [Do Copy]" placement="left">
+                    <FormControlLabel
+                        control={ <Switch checked={settings.autoCopy} onChange={handleChange} name="autoCopy" color="primary" /> }
+                        label="Auto Copy" labelPlacement="start"
+                    />
+                </Tooltip>
             </FormGroup>
         </UserSettingWrap>
     );
@@ -56,11 +57,7 @@ const UserSettingWrap = styled.div`
     justify-content : center;
     align-items : center;
 
-
-    
-   
     border-radius : 5px;
-
     color : white;
 
     @media(max-width : 768px){
@@ -68,4 +65,3 @@ const UserSettingWrap = styled.div`
         max-width : 90%;
     }
 `;
-//  background-color : rgba(255,255,255,0.1);
