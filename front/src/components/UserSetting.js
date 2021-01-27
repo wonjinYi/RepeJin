@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 import styled from "styled-components";
 
-import { makeStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
@@ -28,17 +27,19 @@ export default function UserSetting({passUserSettings}) {
     return (
         <UserSettingWrap className="UserSetting">
             <FormGroup>
-                <Tooltip title="" placement="left">
+                <Tooltip title="Generate Output up to 2000 characters" placement="left">
                     <FormControlLabel
                         control={ <Switch checked={settings.forDiscord} onChange={handleChange} name="forDiscord" color="primary" /> }
                         label="For Discord" labelPlacement="start" 
                     />
                 </Tooltip>
 
-                <FormControlLabel
-                    control={ <Switch checked={settings.snowstorm} onChange={handleChange} name="snowstorm" color="primary" /> }
-                    label="Snow Storm" labelPlacement="start"
-                />
+                <Tooltip title="Stoooooooorrrrrrrrm" placement="left">
+                    <FormControlLabel
+                        control={ <Switch checked={settings.snowstorm} onChange={handleChange} name="snowstorm" color="primary" /> }
+                        label="Snow Storm" labelPlacement="start"
+                    />
+                </Tooltip>
 
                 <Tooltip title="Copy automatically without click [Do Copy]" placement="left">
                     <FormControlLabel
