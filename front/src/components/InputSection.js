@@ -43,10 +43,12 @@ export default function InputSection({ passText, passReps }) {
             <TextField 
                 id="text-input" className={classes.textfield} inputProps={{className: classes.input}} label="Text" 
                 onChange={ (e) => { setText(e.target.value) } } 
+                onKeyPress={ (e) => { if(e.key=='Enter'){passStates(text, reps, passText, passReps, setOpen)} } }
             />
             <TextField 
                 id="reps-input" className={classes.textfield} inputProps={{className: classes.input}} label="Reps" 
                 onChange={ (e) => { setReps(e.target.value) } } 
+                onKeyPress={ (e) => { if(e.key=='Enter'){passStates(text, reps, passText, passReps, setOpen)} } }
             />
             <Button 
                 variant="contained" 
