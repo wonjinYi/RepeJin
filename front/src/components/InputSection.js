@@ -38,13 +38,6 @@ export default function InputSection({ passText, passReps }) {
     const [reps, setReps] = useState('');
     const [open, setOpen] = useState(false);
 
-    // window.addEventListener('keydown', (e) => {
-    //     if(e.key === 'Enter'){
-    //         passStates(text, reps, passText, passReps, setOpen)
-    //         console.log(text, reps);
-    //     }
-    // });
-
     return (
         <InputSectionWrap>
             <TextField 
@@ -71,7 +64,7 @@ export default function InputSection({ passText, passReps }) {
 
             <KeyboardEventHandler
                 handleKeys={['enter']}
-                onKeyEvent={ (key, e) => {passStates(text, reps, passText, passReps, setOpen)} } 
+                onKeyEvent={ (key, e) => { passStates(text, reps, passText, passReps, setOpen) } } 
             />
         </InputSectionWrap>
     );
