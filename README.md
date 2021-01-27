@@ -1,6 +1,7 @@
 # RepeJin :: Simple Text Repeater
 ### https://wonjinyi.github.io/RepeJin
 
+![preview](./etc/preview/png)
 
 ### Stack
 * React.js
@@ -15,7 +16,10 @@ Web
 ### Property Lists
 * Text : Text you want to repeat.
 * Reps : A number of repetitions
-* Options ( to be determind )
+* Options
+    * For discord : output length limit up to 2000 characters.
+    * Snow storm : snow backgrount effect On/Off
+    * Auto copy : copy without click "DO COPY" button.
 
 
 ### Use case
