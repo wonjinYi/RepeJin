@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 
 import styled from "styled-components";
+
+import useClipboard from "react-use-clipboard";
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,14 +16,20 @@ import MuiAlert from '@material-ui/lab/Alert';
 export default function OutputSection({ text, reps, forDiscord, autoCopy }) {
     const [open, setOpen] = useState(false); 
     const [severity, setSeverity] = useState(''); // 'info' , 'warning'
+    
+    navigator.permissions.query({ name: 'clipboard-read' })
     const NumLengthLimit = 2000;
 
     const result = makeResult(text, reps, forDiscord, NumLengthLimit);
+    const [isCopied, setCopied] = useClipboard(result);
+
     const classes = useStyles();
 
     useEffect( () => {
         if (autoCopy) {
-            openCopyNoti(result.length, setOpen, setSeverity)
+            openCopyNoti(result.length, setOpen, setSeverity);
+            navigator.clipboard.writeText(result)
+            //setCopied();
         }
     }, [autoCopy,result.length]);
     return (
