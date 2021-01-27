@@ -1,7 +1,7 @@
 # RepeJin :: Simple Text Repeater
 ### https://wonjinyi.github.io/RepeJin
 
-![preview](./etc/preview/png)
+![preview](./etc/preview.png)
 
 ### Stack
 * React.js
