@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
 
+import KeyboardEventHandler from 'react-keyboard-event-handler';
+
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -36,14 +38,27 @@ export default function InputSection({ passText, passReps }) {
     const [reps, setReps] = useState('');
     const [open, setOpen] = useState(false);
 
+    // window.addEventListener('keydown', (e) => {
+    //     if(e.key === 'Enter'){
+    //         passStates(text, reps, passText, passReps, setOpen)
+    //         console.log(text, reps);
+    //     }
+    // });
+
     return (
         <InputSectionWrap>
-            <TextField id="text-input" className={classes.textfield} inputProps={{className: classes.input}} label="Text" onChange={ (e) => { setText(e.target.value) } } />
-            <TextField id="reps-input" className={classes.textfield} inputProps={{className: classes.input}} label="Reps" onChange={ (e) => { setReps(e.target.value) } } />
+            <TextField 
+                id="text-input" className={classes.textfield} inputProps={{className: classes.input}} label="Text" 
+                onChange={ (e) => { setText(e.target.value) } } 
+            />
+            <TextField 
+                id="reps-input" className={classes.textfield} inputProps={{className: classes.input}} label="Reps" 
+                onChange={ (e) => { setReps(e.target.value) } } 
+            />
             <Button 
                 variant="contained" 
                 className={classes.button} 
-                onClick={ () => { passStates(text, reps, passText, passReps, setOpen) } }
+                onClick={ (e) => { passStates(text, reps, passText, passReps, setOpen) } }
             >
                 DO REPEAT
             </Button>
@@ -54,6 +69,10 @@ export default function InputSection({ passText, passReps }) {
                 </MuiAlert>
             </Snackbar>
 
+            <KeyboardEventHandler
+                handleKeys={['enter']}
+                onKeyEvent={ (key, e) => {passStates(text, reps, passText, passReps, setOpen)} } 
+            />
         </InputSectionWrap>
     );
 }
