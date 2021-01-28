@@ -5,6 +5,7 @@
 
 ### Stack
 * React.js
+* Redux
 * Material-ui
 * styled-components
 
