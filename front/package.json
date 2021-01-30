@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@capacitor/android": "^2.4.6",
+    "@capacitor/core": "^2.4.6",
     "@material-ui/core": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@testing-library/jest-dom": "^5.11.4",
@@ -50,5 +52,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://wonjinyi.github.io/RepeJin/"
+  "homepage": "https://wonjinyi.github.io/RepeJin/",
+  "devDependencies": {
+    "@capacitor/cli": "2.4.6"
+  }
 }
