@@ -1,0 +1,8 @@
+{
+    "appId": "io.ionic.RepeJin",
+    "appName": "RepeJin",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "build",
+    "cordova": {}
+  }
