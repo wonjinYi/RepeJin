@@ -1,0 +1,7 @@
+{
+    "name": "RepeJin",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }

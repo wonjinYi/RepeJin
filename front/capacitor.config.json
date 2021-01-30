@@ -1,0 +1,9 @@
+{
+    "appId": "io.ionic.RepeJin",
+    "appName": "RepeJin",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "build",
+    "cordova": {},
+    "linuxAndroidStudioPath" : "/home/wonjinyi/android-studio/bin/studio.sh"
+  }
