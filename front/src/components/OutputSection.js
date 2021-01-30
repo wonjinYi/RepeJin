@@ -1,5 +1,5 @@
 // https://clipboardjs.com/
-
+//$project.hasProperty('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 29
 import React, { useState, useEffect } from 'react';
 
 import styled from "styled-components";
